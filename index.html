@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>LIVE THE SOUND | Festival Imersivo</title>
+  <!-- FONTES IMPACTANTES -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loading-screen">
+  <div class="drawing-container">
+    <div class="drawing-text">LIVE THE SOUND</div>
+    <div class="drawing-overlay" id="drawingOverlay"><span>LIVE THE SOUND</span></div>
+  </div>
+  <div class="loading-wave-equalizer">
+    <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+    <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+  </div>
+  <div class="loading-progress-audio"><div class="audio-load-fill" id="loadFill"></div></div>
+  <div style="margin-top: 20px; font-family: 'Poppins', sans-serif; font-size: 0.8rem; letter-spacing: 2px;">Feelings. Mude o ritmo. Viva o sentimento.</div>
+</div>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<div class="voicewave-bg" id="voiceWaveBg"></div>
+
+<main>
+  <section class="hero">
+    <video autoplay muted loop playsinline class="hero-bg-video">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-dj-performing-on-stage-at-a-night-club-32852-large.mp4">
+    </video>
+    <div class="glow-overlay"></div>
+    <div class="hero-content">
+      <div class="live-title">LIVE THE SOUND</div>
+      <div class="sub">"A maior experiência musical do ano."</div>
+      <div class="countdown-neon">
+        <div class="cd-item"><span id="dias">00</span><br>DIAS</div>
+        <div class="cd-item"><span id="horas">00</span><br>HORAS</div>
+        <div class="cd-item"><span id="minutos">00</span><br>MIN</div>
+        <div class="cd-item"><span id="segundos">00</span><br>SEG</div>
+      </div>
+      <button class="btn-primary" id="scrollToBuyBtn">🎟 GARANTA SEU INGRESSO</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="container story-wrapper fade-up">
+      <div class="story-title">NOSSA HISTÓRIA</div>
+      <div class="story-block">
+        <p>A música é a trilha sonora da nossa vida, a batida que acompanha cada lágrima, cada sorriso e cada abraço. Foi dessa certeza que nasceu a <strong>Feelings</strong>, uma produtora criada para transformar emoções em experiências inesquecíveis.</p>
+        <p>Em um mundo cada vez mais acelerado e conectado por telas, a <strong>Feelings</strong> surgiu com o propósito de fazer as pessoas voltarem a sentir, criando eventos que vão muito além do entretenimento. Cada detalhe é pensado para despertar emoções reais, desde o line-up cuidadosamente selecionado até os efeitos visuais, a iluminação e a atmosfera que envolvem o público em uma experiência única.</p>
+        <p>Mais do que organizar festivais, a <strong>Feelings</strong> conecta pessoas através da música, da energia coletiva e de momentos que ficam marcados para sempre. O <strong>Live the Sound</strong> é a expressão máxima dessa visão: não apenas um festival, mas um encontro entre música, pessoas e sentimentos, onde cada batida conta uma história, cada refrão cria uma lembrança e cada instante se transforma em algo inesquecível.</p>
+        <div class="story-highlight">Feelings. Mude o ritmo. Viva o sentimento.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="artistas">
+    <div class="container">
+      <h2>PRINCIPAIS ARTISTAS</h2>
+      <div class="artists-grid" id="artistsMegaList"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>conheça o palco e os tipos de ingressos</h2>
+      <div class="stage-container">
+        <svg class="stage-svg" viewBox="0 0 800 340" style="width:100%; height:auto;">
+          <defs><radialGradient id="stageGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#c084fc" stop-opacity="0.3"/><stop offset="100%" stop-color="#050510" stop-opacity="0"/></radialGradient></defs>
+          <rect x="0" y="160" width="800" height="180" fill="url(#stageGlow)" stroke="#c084fc" stroke-width="1" rx="10"/>
+          <polygon points="400,30 170,160 630,160" fill="rgba(168,85,247,0.15)" stroke="#c084fc" stroke-width="2"/>
+          <line x1="400" y1="30" x2="400" y2="160" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="5"/>
+          <g class="glow-dot" data-area="esquerda"><circle cx="280" cy="125" r="11" fill="#c084fc" stroke="#fff" stroke-width="2"/><text x="280" y="145" fill="#c084fc" font-size="9" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="bold">← Arquibancada esquerda</text></g>
+          <g class="glow-dot" data-area="direita"><circle cx="520" cy="125" r="11" fill="#c084fc" stroke="#fff" stroke-width="2"/><text x="520" y="145" fill="#c084fc" font-size="9" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="bold">Arquibancada direita →</text></g>
+          <g class="glow-dot" data-area="camarote"><circle cx="400" cy="85" r="14" fill="#e879f9" stroke="#fff" stroke-width="2.5"/><text x="400" y="70" fill="#e879f9" font-size="10" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="bold">★ CAMAROTE</text></g>
+          <g class="glow-dot" data-area="vip"><circle cx="220" cy="195" r="10" fill="#c084fc" stroke="#fff" stroke-width="2"/><text x="220" y="215" fill="#c084fc" font-size="9" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="bold">VIP</text></g>
+          <g class="glow-dot" data-area="pista"><circle cx="400" cy="195" r="12" fill="#c084fc" stroke="#fff" stroke-width="2.5"/><text x="400" y="218" fill="#c084fc" font-size="11" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="bold">🎫 PISTA</text></g>
+          <g class="glow-dot" data-area="premium"><circle cx="600" cy="245" r="10" fill="#c084fc" stroke="#fff" stroke-width="2"/><text x="600" y="265" fill="#c084fc" font-size="9" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="bold">PREMIUM</text></g>
+          <text x="400" y="315" fill="#c084fc" font-size="14" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="bold">★ PALCO PRINCIPAL ★</text>
+        </svg>
+        <div id="tooltipStage" class="info-tooltip-stage"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>ESTRUTURA COMPLETA</h2>
+      <div class="struct-grid-2x2">
+        <div class="struct-card-down"><i class="fas fa-chalkboard"></i><div class="card-down-content"><h3>Palco Principal</h3><p>Estrutura 360°</p><div class="extra-down-text">40m de altura • Telões LED 8K • Dolby Atmos • Lasers sincronizados</div></div></div>
+        <div class="struct-card-down"><i class="fas fa-crown"></i><div class="card-down-content"><h3>Área VIP</h3><p>Open bar premium</p><div class="extra-down-text">Open suco e refrigerante • Vista privilegiada • Banheiros privativos</div></div></div>
+        <div class="struct-card-down"><i class="fas fa-utensils"></i><div class="card-down-content"><h3>Praça de Alimentação</h3><p>Food trucks gourmet</p><div class="extra-down-text">20 restaurantes • Chefs renomados • Opções veganas • Bebidas artesanais</div></div></div>
+        <div class="struct-card-down"><i class="fas fa-couch"></i><div class="card-down-content"><h3>Lounge Exclusivo</h3><p>Espaço chill out</p><div class="extra-down-text">Instagramável • DJ sets acústicos • Coquetelaria premium</div></div></div>
+        <div class="struct-card-down"><i class="fas fa-parking"></i><div class="card-down-content"><h3>Estacionamento</h3><p>Coberto e monitorado</p><div class="extra-down-text">🅿 Mais de <b>2.000 vagas</b> • Manobrista • Seguro incluso • Câmeras 24h</div></div></div>
+        <div class="struct-card-down"><i class="fas fa-bed"></i><div class="card-down-content"><h3>Área de Descanso</h3><p>Puffs e massagem</p><div class="extra-down-text">Massoterapeutas • Carregadores • Hidratação gratuita • Puffs ergonômicos</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>PROGRAMAÇÃO</h2>
+      <div class="programacao-wrapper">
+        <div class="timeline-dynamic">
+          <div class="tl-dyn-item"><div class="tl-time">SEGUNDA ÀS 16h</div><div class="tl-desc">Abertura do festival e dos portões</div></div>
+          <div class="tl-dyn-item"><div class="tl-time">Segunda às 23:50h</div><div class="tl-desc">Stands dos patrocinadores + experiência em óculos VR</div></div>
+          <div class="tl-dyn-item"><div class="tl-time">Terça às 18h</div><div class="tl-desc">DJ exclusivo + tirolesa sobre os shows surpresas</div></div>
+          <div class="tl-dyn-item"><div class="tl-time">Terça às 20h</div><div class="tl-desc">Show principal - ALOK</div></div>
+          <div class="tl-dyn-item"><div class="tl-time">Quarta às 22h</div><div class="tl-desc">COLDPLAY - Ao vivo</div></div>
+          <div class="tl-dyn-item"><div class="tl-time">Quinta às 00h</div><div class="tl-desc">FLO RIDA + BLACK EYED PEAS</div></div>
+          <div class="tl-dyn-item"><div class="tl-time">Sexta às 02h</div><div class="tl-desc">Encerramento com fogos + lasers</div></div>
+        </div>
+        <div class="attractions-slider">
+          <div class="attractions-track">
+            <div class="attraction-slide"><i class="fas fa-zipline"></i><span>TIROLESA SOBRE O SHOW</span></div>
+            <div class="attraction-slide"><i class="fas fa-booth"></i><span>STANDS DOS PATROCINADORES</span></div>
+            <div class="attraction-slide"><i class="fas fa-vr-cardboard"></i><span>EXPERIÊNCIA EM ÓCULOS VR</span></div>
+            <div class="attraction-slide"><i class="fas fa-gift"></i><span>BRINDES EXCLUSIVOS</span></div>
+            <div class="attraction-slide"><i class="fas fa-zipline"></i><span>TIROLESA SOBRE O SHOW</span></div>
+            <div class="attraction-slide"><i class="fas fa-booth"></i><span>STANDS DOS PATROCINADORES</span></div>
+            <div class="attraction-slide"><i class="fas fa-vr-cardboard"></i><span>EXPERIÊNCIA VR</span></div>
+            <div class="attraction-slide"><i class="fas fa-gift"></i><span>BRINDES EXCLUSIVOS</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>INFORMAÇÕES</h2>
+      <div class="diamond-grid">
+        <div class="diamond-card"><div class="diamond-inner"><i class="fas fa-calendar-alt"></i><h3>Data</h3><p>Novembro 2026</p><div class="expanded-diamond">17, 18, 19, 20 e 21 de Novembro</div></div></div>
+        <div class="diamond-card"><div class="diamond-inner"><i class="fas fa-map-marker-alt"></i><h3>Local</h3><p>Autódromo de Interlagos - SP</p><div class="expanded-diamond">Avenida Senador Teotônio Vilela, 261</div></div></div>
+        <div class="diamond-card"><div class="diamond-inner"><i class="fas fa-clock"></i><h3>Começo do festival</h3><p>Segunda dia 19/11/26 das 16h às 23:50h</p><div class="expanded-diamond">Abertura segunda 16h • Encerramento do festival sexta às 02h</div></div></div>
+        <div class="diamond-card"><div class="diamond-inner"><i class="fas fa-shield-alt"></i><h3>Segurança</h3><p>24 horas</p><div class="expanded-diamond">Equipe médica, câmeras 24 horas, posto policial 24h</div></div></div>
+        <div class="diamond-card"><div class="diamond-inner"><i class="fas fa-child"></i><h3>Classificação</h3><p>18 anos</p><div class="expanded-diamond">Menores acompanhados por seus responsável legal</div></div></div>
+        <div class="diamond-card"><div class="diamond-inner"><i class="fas fa-check-double"></i><h3>Itens permitidos</h3><p>Lista especial</p><div class="expanded-diamond">Comidas lacradas, remédios com prescrição médica, celulares e câmeras fotográficas sem flash</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>PATROCINADORES</h2>
+      <div class="sponsor-slider">
+        <div class="slider-track" id="sponsorTrack"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta-giant" id="finalTickets">
+    <div class="final-title">VOCÊ ESTÁ PRONTO(A) PARA VIVER ISSO<br> COM A FEELINGS?</div>
+    <p style="font-size:1.6rem; font-family:'Poppins', sans-serif;">Garanta seu ingresso agora e faça parte dessa incrível experiência.</p>
+    <a href="#" id="whatsappLink" target="_blank" class="whatsapp-mega-btn"><i class="fab fa-whatsapp"></i> QUERO SABER MAIS</a>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
