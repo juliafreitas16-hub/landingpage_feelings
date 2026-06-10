@@ -150,10 +150,12 @@ if (progItems.length) {
   progItems.forEach(item => progObserver.observe(item));
 }
 
-// COUNTDOWN
+// COUNTDOWN - 17 DE NOVEMBRO DE 2026
 function updateCD() {
-  const target = new Date(2026, 10, 19, 16, 0, 0).getTime();
+  // Data do evento: 17 de Novembro de 2026 às 00:00
+  const target = new Date(2026, 10, 17, 0, 0, 0).getTime();
   const diff = target - Date.now();
+  
   if (diff < 0) {
     document.getElementById('dias').innerText = '00';
     document.getElementById('horas').innerText = '00';
@@ -161,10 +163,12 @@ function updateCD() {
     document.getElementById('segundos').innerText = '00';
     return;
   }
+  
   const d = Math.floor(diff / 86400000);
   const h = Math.floor((diff % 86400000) / 3600000);
   const m = Math.floor((diff % 3600000) / 60000);
   const s = Math.floor((diff % 60000) / 1000);
+  
   document.getElementById('dias').innerText = d < 10 ? '0' + d : d;
   document.getElementById('horas').innerText = h < 10 ? '0' + h : h;
   document.getElementById('minutos').innerText = m < 10 ? '0' + m : m;
@@ -172,7 +176,6 @@ function updateCD() {
 }
 setInterval(updateCD, 1000);
 updateCD();
-
 // SCROLL PARA COMPRA
 const scrollBtn = document.getElementById('scrollToBuyBtn');
 if (scrollBtn) {
